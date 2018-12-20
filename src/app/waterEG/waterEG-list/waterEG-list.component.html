@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-success" (click)="onNewWAterEG()">New Destination</button>
+    <hr>
+    </div>
+    <hr>
+  </div>
+<div class="row">
+  <div class="col-xs-12">
+    <app-waterEG-item 
+      *ngFor="let waterEGel of waterEGs, let i = index"
+      [waterEG]="waterEGel"
+      [index]="i"></app-waterEG-item>
+  </div>
+</div>

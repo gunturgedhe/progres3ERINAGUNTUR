@@ -1,0 +1,106 @@
+<div class="row"> 
+  <div class="col-xs-12">
+    <form [formGroup]="waterEGForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-xs-12">
+          <button 
+          type="submit" 
+          class="btn btn-success"
+          [disabled]="!waterEGForm.valid">Save</button>
+          <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+        </div>
+      </div>
+      <!-- 1 -->
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+                type="text"
+                id="name"
+                formControlName="name"
+                class="form-control">
+          </div>
+        </div>
+      </div>
+      <!-- end 1 -->
+      <!-- 2 -->
+      <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="imagePath">Image Url</label>
+              <input
+                  type="text"
+                  id="imagePath"
+                  formControlName="imagePath"
+                  class="form-control"
+                  #imagePath>
+            </div>
+          </div>
+        </div>
+        <!-- end 2 -->
+        <!-- 3 -->
+        <div class="row">
+            <div class="col-xs-12">
+              <img [src]="imagePath.value" class="img-responsive">
+            </div>
+          </div>
+        <!-- end 3 -->
+        <!-- 4 -->
+        <div class="row">
+            <div class="col-xs-12">
+              <div class="form-group">
+                <label for="description">Description</label>
+                <textarea
+                    type="text"
+                    id="description"
+                    class="form-control"
+                    formControlName="description"
+                    rows="6"></textarea>
+              </div>
+            </div>
+          </div>
+        <!-- end 4 -->
+        <!-- 5 -->
+        <div class="row">
+            <div class="col-xs-12" formArrayName="comentEGs">
+              <div 
+               class="row"
+               *ngFor="let comentEGCtrl of waterEGForm.get('comentEGs').controls; let i = index"
+               [formGroupName]="i"
+               style="margin-top: 10px; ">
+                <div class="col-xs-8">
+                    <input
+                    type="text"
+                    class="form-control"
+                    formControlName="name">
+              </div>
+              <div class="col-xs-6">
+                  <input
+                  type="text"
+                  class="form-control"
+                  formControlName="coment">
+            </div>
+            <div class="col-xs-2">
+              <button 
+                  type="button"
+              class="btn btn-danger"
+              (click)="onDeleteComentEG(i)">X</button>
+          </div>
+            </div>
+          <!--end-->
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-xs-12">
+              <button 
+              type="button"
+              class="btn btn-success" 
+              (click)="onAddComentEG()">Add Coments</button>
+            </div>
+          </div>
+        <!-- end 5 -->
+    </form>
+  </div>
+</div>

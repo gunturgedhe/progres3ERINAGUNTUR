@@ -1,0 +1,19 @@
+<br>
+<br>
+<br>
+<div class="row">
+  <div class="col-xs-10">
+    <app-destinationEG-edit></app-destinationEG-edit>
+    <hr>
+    <ul class="list-group">
+      <a class="list-group-item" 
+      style="cursor:pointer"
+      *ngFor="let comentEG of comentEGs; let i = index"
+      (click)="onEditItem(i)"
+      >
+      {{comentEG.name}} ({{comentEG.description}})
+      </a>
+    </ul>
+    <hr>
+  </div>
+</div>
